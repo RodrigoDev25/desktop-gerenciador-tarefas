@@ -1,0 +1,5 @@
+* { /*Zerar estilização*/
+    margin: 0;
+    padding: 0;
+    box-sizing: 0; /*Leva em consideração a espussura da borda*/
+}

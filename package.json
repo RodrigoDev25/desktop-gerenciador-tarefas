@@ -1,0 +1,17 @@
+{
+  "name": "desktop-template-electron",
+  "version": "1.0.0",
+  "description": "Template base para criar apliações com o electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electronmon ."
+  },
+  "keywords": [],
+  "author": "Rodrigo Silva",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^36.2.0",
+    "electronmon": "^2.0.3"
+  }
+}
