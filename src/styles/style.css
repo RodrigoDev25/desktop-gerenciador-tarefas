@@ -8,28 +8,32 @@
 }
 
 body {
+    display: flex;
     background-color: #000;
     color: #fff;
+    justify-content: center;
 }
 
-div {
+div { 
     background-color: blue;
     max-width: 500px;
-    margin: 120px;
+    margin-top: 120px;
     padding: 30px;
     border-radius: 10px;
+
 }
 
 input {
     border: 1px solid;
     border-radius: 5px;
+    margin-top: 10px;
     margin-bottom: 5px;
     padding: 5px;
 }
 
 button {
     background-color: red;
-    padding: 3px 5px;
+    
     border-radius: 5px; 
     margin-left: 3px;
 }
@@ -59,4 +63,11 @@ li {
 
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.tarefa-concluida {
+    color: rgb(61, 240, 61);
+    font-weight: bold;
+    text-decoration: line-through;
 }
