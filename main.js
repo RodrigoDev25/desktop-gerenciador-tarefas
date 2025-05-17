@@ -3,12 +3,13 @@ const { app, BrowserWindow } = require('electron')
 
 //Função para criar a janela principal
 
-function creatWindow () {
- 
+function creatWindow() {
+
     //criar nova instancia do BrowserWindow
     const window = new BrowserWindow({
         width: 800,
         height: 600,
+        icon: "assets/octocat.png"
     })
 
     //carregar o arquivo html na janela
@@ -16,7 +17,7 @@ function creatWindow () {
 }
 
 //Evento que é acionado quando o Electron está pronto
-app.whenReady().then( () => {
+app.whenReady().then(() => {
     creatWindow(); //Chama a função de criar janela
-} )
+})
 
