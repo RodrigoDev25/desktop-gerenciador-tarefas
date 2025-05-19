@@ -1,40 +1,67 @@
+// Criando variavel
+let inputMain = document.getElementById("input-tarefa");
+
+// Adicionar um evento de keypress no input
+inputMain.addEventListener("keypress", function (event) {
+
+    // Verificar se a tecla pressionada foi o Enter
+    if (event.key == "Enter") {
+        // Vou chamar a função addTask
+        addTask()
+    }
+})
+
 function addTask() {
-    // Pega o elemento do input onde o usuário digita a tarefa
-    var input = document.getElementById("input-tarefa")
+    // Pega o input
+    var input2 = document.getElementById("input-tarefa");
 
-    // Adiciona evento para tecla Enter dentro do input
-    input.addEventListener("keypress", function(event) {
-        if(event.key == "Enter") {
-            addTask()
-        }
-    }) // <<== fechando o parêntese que estava faltando
+    // Pega o valor do input
+    var input2Value = input2.value;
 
-    // Armazena o valor digitado no input em uma variável
-    var inputVar = input.value
+    // CORRIGIDO AQUI
+    if (input2Value.trim() === "") {
 
-    // Se o campo estiver vazio ou só com espaços, mostra alerta e sai da função
-    if(inputVar.trim() == "") { // <<== aqui era null, mas deve ser ""
-        alert("Digite algo")
+        alert("Digite uma tarefa");
+
         return
     }
 
-    // Limpa o input depois de pegar o valor
-    input.value = null
+    // Limpar o input
+    input2.value = "";
 
-    // Pega o elemento da lista onde as tarefas serão adicionadas
+    // Pega a lista de tarefas
     var list = document.getElementById("lista-tarefas")
 
-    // Cria um novo elemento <li> (item da lista)
-    var li = document.createElement("li")
+    // Criar um elemento li
+    var li = document.createElement("li");
 
-    // Define o conteúdo do <li> com o texto da tarefa e um botão de remover com ícone de lixeira
-    li.innerHTML = `${inputVar} <button onclick="this.parentElement.remove()"> <img id="x" src="../../assets/lixeira.png" width="17px" height="17px"> </button>`
+    // Adicionar o valor do INPUT para o LI
+    li.innerHTML = `${input2Value} <button onclick="this.parentElement.remove()" >🗑️</button>`;
 
-    // Adiciona uma função ao clicar no <li> que marca a tarefa como concluída (altera a classe)
+    // Adicionar a função de marcar a tarefa como concluída
     li.onclick = function () {
-        li.className = "tarefa-concluida"
+        li.className = "tarefa-concluida";
     }
 
-    // Adiciona o <li> criado dentro da lista de tarefas
+    // Adicionar o LI na lista de tarefas
     list.appendChild(li)
+
+    showModal()
+}
+
+function showModal() {
+    // Pega a modal
+    var modal = document.getElementById("modal-sucesso");
+
+    // Adicionar audio
+    var audio = document.getElementById("audio-teste");
+    audio.play();
+
+    // Adiciona o css da modal 
+    modal.classList.add('open-modal');
+
+    setTimeout(function () {
+        // Remove o css da modal
+        modal.classList.remove('open-modal');
+    }, 3000);
 }
